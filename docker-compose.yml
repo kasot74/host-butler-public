@@ -1,0 +1,11 @@
+# 直接 build 原始碼起服務:docker compose up -d --build
+services:
+  host-butler:
+    build: .
+    container_name: host-butler
+    network_mode: host
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
